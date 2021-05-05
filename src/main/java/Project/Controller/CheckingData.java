@@ -44,4 +44,17 @@ public class CheckingData {
         }
         return false;
     }
+
+    public static boolean checkId(int id) throws SQLException {
+        Connection connection = DBConnection.DBConnect();
+        Statement stmt = connection.createStatement();
+        String sql = "SELECT id FROM category;";
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            if (id == rs.getInt("id")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
