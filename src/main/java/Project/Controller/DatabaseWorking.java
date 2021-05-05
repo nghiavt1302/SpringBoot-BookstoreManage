@@ -27,7 +27,7 @@ public class DatabaseWorking {
     public static ResultSet QueryBookListByCategory(int id) throws SQLException {
         Connection cnt = DBConnection.DBConnect();
         Statement stmt = cnt.createStatement();
-        String sql = "select * from getBookByCategory where id = 1 " ;
+        String sql = "select * from getBookByCategory where id = " + id;
         ResultSet rs = stmt.executeQuery(sql);
         return rs;
     }
